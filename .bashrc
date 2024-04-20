@@ -67,6 +67,8 @@ for file in /etc/bash_completion.d/*; do
   [ -r "$file" ] && source "$file"
 done
 
+# ls color
+alias ls='ls --color=auto' # ls color auto
 
 # kubectl
 alias k='kubectl'
