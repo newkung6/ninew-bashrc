@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PATH_LOCAL_BIN="~/usr/local/bin"
+PATH_LOCAL_BIN="/usr/local/bin"
 
 # Install software
 cd
