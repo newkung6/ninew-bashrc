@@ -20,10 +20,9 @@
     ```
 2. Initial setup
 
-    ```sh
-    cp ~/.dotfiles/.vimrc ~/
-    cp ~/.dotfiles/.tmux.conf ~/
-
+    ```
+    cd .dotfiles
+    ./install.sh
     ```
 
 ---
