@@ -84,7 +84,7 @@ function git_branch() {
 
     g_branch_icon=""
     g_branch=" $(echo $g_status |sed 's/ No commits yet on//' | cut -d ' ' -f2 | sed -E "s/[\.]{3}[^[:space:]]+//" | sed "s/[\|].*//" )"
-    g_upstream="$(echo $g_status | grep -E "[\.]{3}" | grep -v 'gone' > /dev/null && echo "")"
+    g_upstream="$(echo $g_status | grep -E "[\.]{3}" > /dev/null && echo "")"
     if [[ -n ${g_upstream} ]]; then
       g_upstream=" ${g_upstream} "
     fi
@@ -99,12 +99,12 @@ function git_branch() {
       g_behind_icon="  "
     fi
 
-    g_change=$(echo $g_status | sed -E "s/[\|][\?]+[^\|]*//g" | grep -E "\|" > /dev/null && echo "")
+    g_change=$(echo $g_status | sed -E "s/[\|][\?]+[^\|]*//g" | grep -E "\|" > /dev/null && echo "")
     if [[ -n ${g_change} ]]; then
       g_change=" ${g_change} "
     fi
 
-    g_untrack=$(echo $g_status | grep -E "\|[\?]{2}" > /dev/null && echo "")
+    g_untrack=$(echo $g_status | grep -E "\|[\?]{2}" > /dev/null && echo "")
     if [[ -n ${g_untrack} && -z ${g_change} ]]; then
       g_untrack=" ${g_untrack} "
     elif [[ -n ${g_untrack} ]]; then
