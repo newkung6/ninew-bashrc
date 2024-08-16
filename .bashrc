@@ -1,6 +1,4 @@
-#
 # ~/.bashrc
-#
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -26,6 +24,10 @@ if [ -d ~/.bashrc.d ]; then
   done
 fi
 
+for file in /etc/bash_completion.d/*; do
+  [ -r "$file" ] && source "$file"
+done
+
 ####################################
 # Custom Environment Variables
 ####################################
@@ -33,76 +35,21 @@ fi
 # global
 EDITOR="/usr/bin/vi"
 
-# bat
-# BAT_THEME="Solarized (dark)"
+BASH_CUSTOM_SCRIPT_DIR=$HOME/.local/ninew-bashrc
 
-# fzf
-export FZF_TMUX_HEIGHT=40%
-export FZF_CTRL_SPACE_COMMAND="(fd -tf -tl -td -d 1 . ~/Downloads && fd -tf -tl -td -d 1 . $pwd)"
-export FZF_CTRL_SPACE_OPTS="--preview 'bat --style=numbers --color=always {}'"
-export FZF_WORKSPACE_COMMAND="(echo ~/Downloads/ &&  find ~/workspace -type d -name '.git' | sed -E 's:/.git$::g' 2> /dev/null)"
+## - Activate FZF
+source $BASH_CUSTOM_SCRIPT_DIR/fzf/activate.sh
 
-source ~/.dotfiles/fzf-key-binding.bash
+## - Activate PS1
+source $BASH_CUSTOM_SCRIPT_DIR/bash-ps1/activate.sh
 
-#####################################
-# Custom modifications
-####################################
+## - Activate utils
+source $BASH_CUSTOM_SCRIPT_DIR/utils/activate.sh
 
-# VI editing mode
-set -o vi
+## - Activate BAT
+# source $BASH_CUSTOM_SCRIPT_DIR/bat/activate.sh
 
-# Enable tabs 2
-tabs 2
-
-# Solarized terminal color code
-. ~/.dotfiles/color-scheme.sh
-
-# Import prompt functions
-. ~/.dotfiles/ps1-functions.sh
-
+## - Activate ca-certificate
+# source $BASH_CUSTOM_SCRIPT_DIR/ca-bundle-keychain/activate.sh
 
 ####################################
-
-for file in /etc/bash_completion.d/*; do
-  [ -r "$file" ] && source "$file"
-done
-
-# ls color
-alias ls='ls --color=auto' # ls color auto
-
-# kubectl
-alias k='kubectl'
-complete -o default -F __start_kubectl k
-
-# kubeselect kubens
-# alias ks='eval $(kubeselect select)'
-alias ks='export KUBECONFIG="$(ls ~/.kube/*.yaml | fzf)"'
-
-#alias ns='kubens'
-function kns {
-  selected_ns=$(kubectl get ns -o name |awk -F / '{print $2}' | fzf)
-  kubectl config set-context --current --namespace=$selected_ns
-}
-
-# watch
-alias watch='watch '
-
-case ${TERM} in
-  xterm*|rxvt*|Eterm|aterm|kterm|gnome*|screen*|tmux*)
-    # PROMPT_COMMAND="user_color > /dev/null; k8s_user_color; git_branch > /dev/null;"
-    PROMPT_COMMAND="user_color > /dev/null; k8s_user_color > /dev/null; git_branch > /dev/null;"
-
-    # Use PS1 in /opt/bash/ps1-functions.sh
-    PS1=$MODERN_PS1
-
-    ;;
-  *)
-    PROMPT_COMMAND="git_branch > /dev/null;"
-    setterm -cursor on
-    cursor_styles="\e[?${cursor_style_full_block};"
-    PS1='\n\[$bracketcolor\][\[$cwdcolor\]\W\[$bracketcolor\]] \[${fg_cyan}\]${g_group_open}\[${fg_cyan}\]${g_branch}\[${fg_cyan}\]${g_group_close}\[${reset}\]\[$fg_white\]\$\[$resetcolor\] '
-
-    ;;
-esac
-
-export PS1

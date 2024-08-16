@@ -11,18 +11,36 @@
 - tmux
 - tmuxinator
 - helm
+- gcloud
+- aws
 ---
+## Preinstall
+
+
+
 ## Instructions
 
-1. Clone this repository to `~/.dotfiles`
+1. Clone this repository to `~/.local`
     ```sh
-    git clone https://github.com/newkung6/ninew-bashrc ~/.dotfiles
+    git clone https://github.com/newkung6/ninew-bashrc ~/.local/ninew-bashrc
     ```
 2. Initial setup
 
     ```
+<<<<<<< HEAD
     cd .dotfiles
     ./install.sh
+=======
+    ./install.sh # Install Prerequisite tool
+
+    #manual Install Gcloud and AWS cli
+    ./google-cloud-sdk/install.sh
+
+    unzip awscliv2.zip 
+
+    # install cli
+    ./active.sh 
+>>>>>>> reconstruct
     ```
 
 ---
