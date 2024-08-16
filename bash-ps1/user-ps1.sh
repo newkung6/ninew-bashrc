@@ -3,7 +3,7 @@
 ######################################
 
 function user_ps1 {
-  p_user="󰝰"
+  p_user="$(whoami)@$HOSTNAME"
 
   if [[ "${USER}" == "root" ]]; then
     export usercolor="${bold}${fg_red}"

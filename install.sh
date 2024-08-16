@@ -32,11 +32,3 @@ kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl
 helm completion bash | sudo tee /etc/bash_completion.d/helm
 flux completion bash | sudo tee /etc/bash_completion.d/flux
 kustomize completion bash | sudo tee /etc/bash_completion.d/kustomize
-
-# backup .bashrc
-cp ~/.bashrc ~/.bashrc.orig
-
-# # install dotfiles
-# cp ~/.dotfiles/.bashrc ~/
-# cp ~/.dotfiles/.vimrc ~/
-# cp ~/.dotfiles/.tmux.conf ~/

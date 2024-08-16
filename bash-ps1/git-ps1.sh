@@ -22,9 +22,9 @@ function git_ps1() {
     g_group_open="("
     g_group_close=") "
 
-    g_branch_icon="󰘬"
+    g_branch_icon=""
     g_branch=" $(echo $g_status |sed 's/ No commits yet on//' | cut -d ' ' -f2 | sed -E "s/[\.]{3}[^[:space:]]+//" | sed "s/[\|].*//" )"
-    g_upstream="$(echo $g_status | grep -E "[\.]{3}" | grep -v 'gone' > /dev/null && echo "")"
+    g_upstream="$(echo $g_status | grep -E "[\.]{3}" | grep -v 'gone' > /dev/null && echo "")"
     if [[ -n ${g_upstream} ]]; then
       g_upstream=" ${g_upstream} "
     fi

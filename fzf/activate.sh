@@ -3,7 +3,7 @@
 ################################################
 # FZF activation
 ################################################
-
+# SCRIPT_DIR=$(dirname ${BASH_SOURCE[0]})
 SCRIPT_DIR=$(dirname ${BASH_SOURCE[0]})
 
 export FZF_TMUX_HEIGHT=40%

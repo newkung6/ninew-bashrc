@@ -4,8 +4,8 @@
 
 ## - Aliases
 alias k='kubectl'
-alias ks='kubeselect'
-alias ns='kubens'
+alias ks='export KUBECONFIG="$(ls ~/.kube/*.yaml | fzf)"'
+
 
 ## - Bash completion
 complete -o default -F __start_kubectl k
@@ -23,15 +23,11 @@ function kubecontext_list() {
   done
 }
 
-## - kubeselect
-function kubeselect() {
-  DISP_SELECTED=$(kubecontext_list | fzf)
-  export KUBECONFIG="${KUBECONFIG_DIR}/${DISP_SELECTED%% // *}"
-  export KUBECTX="${DISP_SELECTED##* // }"
-  echo $KUBECONFIG
-  echo $KUBECTX
+#alias ns='kubens'
+function kns {
+  selected_ns=$(kubectl get ns -o name |awk -F / '{print $2}' | fzf)
+  kubectl config set-context --current --namespace=$selected_ns
 }
-
 
 ## - K8S PS1
 function k8s_ps1 {

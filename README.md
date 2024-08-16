@@ -24,7 +24,9 @@
     ```
 2. Initial setup
 
-    ```sh
+    ```
+    ./install.sh # Install Prerequisite tool
+    ./active.sh # install cli
     ```
 
 ---
