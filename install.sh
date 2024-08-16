@@ -13,10 +13,10 @@ sudo yum update && sudo yum install -y tmux
 wget https://github.com/mikefarah/yq/releases/download/v4.27.2/yq_linux_amd64.tar.gz -O -| tar -xz && sudo mv ~/yq_linux_amd64 $PATH_LOCAL_BIN/yq
 
 #jq
-wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 && chmod +x ~/jq-linux64 && sudo mv ~/jq-linux64 $PATH_LOCAL_BIN/jq
+wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 && chmod +x ~/jq-linux64 && sudo mv ~/jq-linux64 $PATH_LOCAL_BIN/jq && rm -rf install-man-page.sh && rm -rf yq.1
 
 #Helm
-wget https://get.helm.sh/helm-v3.14.3-linux-amd64.tar.gz -O -|tar -xz && sudo mv ~/linux-amd64/helm $PATH_LOCAL_BIN/helm
+wget https://get.helm.sh/helm-v3.14.3-linux-amd64.tar.gz -O -|tar -xz && sudo mv ~/linux-amd64/helm $PATH_LOCAL_BIN/helm && rm -rf ~/linux-amd64
 
 #Kustomize
 wget https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.3.0/kustomize_v5.3.0_linux_amd64.tar.gz -O -| tar -xz && sudo mv kustomize $PATH_LOCAL_BIN/kustomize
@@ -32,3 +32,9 @@ kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl
 helm completion bash | sudo tee /etc/bash_completion.d/helm
 flux completion bash | sudo tee /etc/bash_completion.d/flux
 kustomize completion bash | sudo tee /etc/bash_completion.d/kustomize
+
+#gcloud 
+curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz  -O -| tar -xf && sudo ./google-cloud-sdk/install.sh
+
+#aws
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install
