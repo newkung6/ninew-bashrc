@@ -105,4 +105,7 @@ case ${TERM} in
     ;;
 esac
 
+# Flutter
+export PATH="/usr/bin/flutter/bin:$PATH"
+
 export PS1

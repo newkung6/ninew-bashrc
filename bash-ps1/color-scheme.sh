@@ -1,7 +1,5 @@
-#!/bin/bash
-
 ##############################################
-# Solarize terminal color code 
+# Solarize terminal color code
 ##############################################
 
 normal=$(tput rmul)$(tput dim)

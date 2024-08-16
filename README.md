@@ -12,18 +12,19 @@
 - tmuxinator
 - helm
 ---
+## Preinstall
+
+
+
 ## Instructions
 
-1. Clone this repository to `~/.dotfiles`
+1. Clone this repository to `~/.local`
     ```sh
-    git clone https://github.com/newkung6/ninew-bashrc ~/.dotfiles
+    git clone https://github.com/newkung6/ninew-bashrc ~/.local/ninew-bashrc
     ```
 2. Initial setup
 
     ```sh
-    cp ~/.dotfiles/.vimrc ~/
-    cp ~/.dotfiles/.tmux.conf ~/
-
     ```
 
 ---

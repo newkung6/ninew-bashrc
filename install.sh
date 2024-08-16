@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PATH_LOCAL_BIN="~/usr/local/bin"
+PATH_LOCAL_BIN="/usr/local/bin"
 
 # Install software
 cd
@@ -36,7 +36,7 @@ kustomize completion bash | sudo tee /etc/bash_completion.d/kustomize
 # backup .bashrc
 cp ~/.bashrc ~/.bashrc.orig
 
-# install dotfiles
-cp ~/.dotfiles/.bashrc ~/
-cp ~/.dotfiles/.vimrc ~/
-cp ~/.dotfiles/.tmux.conf ~/
+# # install dotfiles
+# cp ~/.dotfiles/.bashrc ~/
+# cp ~/.dotfiles/.vimrc ~/
+# cp ~/.dotfiles/.tmux.conf ~/
