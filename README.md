@@ -11,6 +11,8 @@
 - tmux
 - tmuxinator
 - helm
+- gcloud
+- aws
 ---
 ## Preinstall
 
@@ -26,7 +28,14 @@
 
     ```
     ./install.sh # Install Prerequisite tool
-    ./active.sh # install cli
+
+    #manual Install Gcloud and AWS cli
+    ./google-cloud-sdk/install.sh
+
+    unzip awscliv2.zip 
+
+    # install cli
+    ./active.sh 
     ```
 
 ---
