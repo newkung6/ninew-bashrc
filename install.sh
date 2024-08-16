@@ -34,7 +34,7 @@ flux completion bash | sudo tee /etc/bash_completion.d/flux
 kustomize completion bash | sudo tee /etc/bash_completion.d/kustomize
 
 #gcloud 
-curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz  -O -| tar -xf && sudo ./google-cloud-sdk/install.sh
+wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz -O -| tar -xz
 
 #aws
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip 
