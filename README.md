@@ -27,10 +27,6 @@
 2. Initial setup
 
     ```
-<<<<<<< HEAD
-    cd .dotfiles
-    ./install.sh
-=======
     ./install.sh # Install Prerequisite tool
 
     #manual Install Gcloud and AWS cli
@@ -40,7 +36,6 @@
 
     # install cli
     ./active.sh 
->>>>>>> reconstruct
     ```
 
 ---
